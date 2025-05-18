@@ -1,0 +1,36 @@
+.finance-bar {
+  background-color: #f8f9fa;
+  padding: 8px 16px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.finance-items {
+  display: flex;
+  align-items: center;          /* Dikey ortalama */
+  justify-content: center;      /* Yatay ortalama */
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.finance-item {
+  min-width: max-content;
+}
+
+.finance-up {
+  color: green;
+  font-weight: 500;
+}
+
+.finance-down {
+  color: red;
+  font-weight: 500;
+}
+
+.finance-neutral {
+  color: gray;
+  font-weight: 500;
+}

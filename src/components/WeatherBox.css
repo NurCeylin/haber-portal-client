@@ -1,0 +1,96 @@
+.weather-box {
+  max-width: 420px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  color: white;
+  padding: 20px;
+  font-family: sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-top: 12px;
+  overflow-x: auto;
+}
+
+.current-weather {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.city-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.current-temp {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.current-desc {
+  font-size: 14px;
+  color: #e0e0e0;
+}
+
+.forecast-row {
+  display: flex;
+  gap: 8px;               /* önce 12px idi */
+  justify-content: center;
+  flex-wrap: nowrap;      /* alt satıra kaymasın */
+  overflow-x: auto;       /* taşarsa yatay kaydırılsın */
+}
+
+.forecast-card {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 10px;
+  width: 70px;
+  text-align: center;
+  backdrop-filter: blur(5px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.forecast-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+.day {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.icon {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.high {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.low {
+  font-size: 13px;
+  color: #ddd;
+}
+
+/* Mobil uyum */
+@media (max-width: 480px) {
+  .forecast-card {
+    width: 60px;
+    padding: 8px;
+  }
+
+  .current-temp {
+    font-size: 28px;
+  }
+
+  .icon {
+    font-size: 20px;
+  }
+}

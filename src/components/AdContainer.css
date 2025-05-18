@@ -1,0 +1,31 @@
+.ad-box {
+  position: fixed;
+  top: 100px;
+  z-index: 1000;
+}
+
+.ad-left {
+  left: 10px;
+}
+
+.ad-right {
+  right: 10px;
+}
+
+.ad-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  background: red;
+  color: white;
+  padding: 2px 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.ad-img {
+  width: 120px;
+  height: 600px;
+  object-fit: cover;
+}

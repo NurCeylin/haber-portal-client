@@ -1,0 +1,14 @@
+.custom-indicators .dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 6px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.custom-indicators .dot.active {
+  background-color: red;
+}
