@@ -5,7 +5,7 @@ const WeatherBox = () => {
   const [forecast, setForecast] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/weather')
+    fetch(`${process.env.REACT_APP_API_URL}/api/weather`)
       .then(res => res.json())
       .then(data => setForecast(data))
       .catch(err => console.error('Hava verisi alınamadı:', err));

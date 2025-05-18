@@ -1,14 +1,19 @@
-.custom-indicators .dot {
-  height: 12px;
-  width: 12px;
-  margin: 0 6px;
-  background-color: #ccc;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
+.slider-image {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  background-color: #000;
+  border-radius: 6px;
 }
 
-.custom-indicators .dot.active {
+.custom-slider .carousel-indicators [data-bs-target] {
+  background-color: gray;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+
+.custom-slider .carousel-indicators .active {
   background-color: red;
 }

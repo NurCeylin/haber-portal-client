@@ -5,7 +5,7 @@ const FinanceBar = () => {
   const [financeData, setFinanceData] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/finance')
+    fetch(`${process.env.REACT_APP_API_URL}/api/finance`)
       .then((res) => res.json())
       .then((data) => setFinanceData(data))
       .catch((err) => console.error('Finance API error:', err));

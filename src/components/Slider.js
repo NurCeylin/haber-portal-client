@@ -4,23 +4,24 @@ import { Carousel } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToHistory } from '../redux/historySlice';
-import './Slider.css'; // özel stil dosyası
+import './Slider.css';
 
 const Slider = () => {
   const [news, setNews] = useState([]);
-  const [index, setIndex] = useState(0);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/news')
-      .then(res => setNews(res.data))
-      .catch(err => console.error('Haberler alınamadı:', err));
+    const fetchNews = async () => {
+      try {
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/news`);
+        setNews(res.data);
+      } catch (err) {
+        console.error('Haberler alınamadı:', err);
+      }
+    };
+    fetchNews();
   }, []);
-
-  const handleSelect = (selectedIndex) => {
-    setIndex(selectedIndex);
-  };
 
   const handleClick = (item) => {
     dispatch(addToHistory(item));
@@ -28,47 +29,21 @@ const Slider = () => {
   };
 
   return (
-    <>
-      <Carousel
-        fade
-        interval={4000}
-        indicators={false}
-        activeIndex={index}
-        onSelect={handleSelect}
-      >
-        {news.map(item => (
-          <Carousel.Item
-            key={item.id}
-            onClick={() => handleClick(item)}
-            style={{ cursor: 'pointer' }}
-          >
-            <img
-              className="d-block"
-              src={`/images/${item.image}`}
-              alt={item.title}
-              style={{
-                width: '100%',
-                height: 'auto',
-                maxHeight: '600px',
-                objectFit: 'contain',
-                backgroundColor: '#000',
-                borderRadius: '6px'
-              }}
-            />
-          </Carousel.Item>
-        ))}
-      </Carousel>
-
-      <div className="custom-indicators mt-2 text-center">
-        {news.map((_, idx) => (
-          <span
-            key={idx}
-            className={`dot ${index === idx ? 'active' : ''}`}
-            onClick={() => setIndex(idx)}
+    <Carousel fade interval={4000} indicators className="custom-slider">
+      {news.map((item) => (
+        <Carousel.Item
+          key={item.id}
+          onClick={() => handleClick(item)}
+          style={{ cursor: 'pointer' }}
+        >
+          <img
+            className="d-block slider-image"
+            src={`/images/${item.image}`}
+            alt={item.title}
           />
-        ))}
-      </div>
-    </>
+        </Carousel.Item>
+      ))}
+    </Carousel>
   );
 };
 
